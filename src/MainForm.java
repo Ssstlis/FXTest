@@ -1,6 +1,7 @@
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicProgressBarUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ public class MainForm extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         Container pane = getContentPane();
+        pane.setBackground(Color.decode("#e6de8a"));
         pane.setLayout(new GridBagLayout());
 
         GridBagConstraints constraints = new GridBagConstraints();
@@ -34,32 +36,112 @@ public class MainForm extends JFrame
 
         constraints.ipady = 0;
 
-        final JProgressBar bar0 = new JProgressBar(0, 100);
-        bar0.setBackground(Color.BLUE);
+        final JProgressBar bar0 = new JProgressBar(0, 1);
+        bar0.setForeground(Color.decode("#91a2cc"));
+        bar0.setStringPainted(true);
+        bar0.setForeground(Color.decode("#91ccc7"));
+        bar0.setUI(new BasicProgressBarUI()
+        {
+            @Override
+            protected Color getSelectionBackground()
+            {
+                return Color.BLACK;
+            }
+
+            @Override
+            protected Color getSelectionForeground()
+            {
+                return Color.BLACK;
+            }
+        });
         constraints.gridx = 0;
         constraints.gridy = 1;
         pane.add(bar0, constraints);
 
-        final JProgressBar bar1 = new JProgressBar(0, 100);
-        bar1.setBackground(Color.BLUE);
+        final JProgressBar bar1 = new JProgressBar(0, 1);
+        bar1.setForeground(Color.decode("#91a2cc"));
+        bar1.setStringPainted(true);
+        bar1.setForeground(Color.decode("#91ccc7"));
+        bar1.setUI(new BasicProgressBarUI()
+        {
+            @Override
+            protected Color getSelectionBackground()
+            {
+                return Color.BLACK;
+            }
+
+            @Override
+            protected Color getSelectionForeground()
+            {
+                return Color.BLACK;
+            }
+        });
         constraints.gridx = 0;
         constraints.gridy = 2;
         pane.add(bar1, constraints);
 
-        final JProgressBar bar2 = new JProgressBar(0, 100);
-        bar2.setBackground(Color.BLUE);
+        final JProgressBar bar2 = new JProgressBar(0, 1);
+        bar2.setForeground(Color.decode("#91a2cc"));
+        bar2.setStringPainted(true);
+        bar2.setForeground(Color.decode("#91ccc7"));
+        bar2.setUI(new BasicProgressBarUI()
+        {
+            @Override
+            protected Color getSelectionBackground()
+            {
+                return Color.BLACK;
+            }
+
+            @Override
+            protected Color getSelectionForeground()
+            {
+                return Color.BLACK;
+            }
+        });
         constraints.gridx = 0;
         constraints.gridy = 3;
         pane.add(bar2, constraints);
 
-        final JProgressBar bar3 = new JProgressBar(0, 100);
-        bar3.setBackground(Color.BLUE);
+        final JProgressBar bar3 = new JProgressBar(0, 1);
+        bar3.setForeground(Color.decode("#91a2cc"));
+        bar3.setStringPainted(true);
+        bar3.setForeground(Color.decode("#91ccc7"));
+        bar3.setUI(new BasicProgressBarUI()
+        {
+            @Override
+            protected Color getSelectionBackground()
+            {
+                return Color.BLACK;
+            }
+
+            @Override
+            protected Color getSelectionForeground()
+            {
+                return Color.BLACK;
+            }
+        });
         constraints.gridx = 0;
         constraints.gridy = 4;
         pane.add(bar3, constraints);
 
         final JProgressBar bar4 = new JProgressBar(0, 100);
-        bar4.setBackground(Color.BLUE);
+        bar4.setForeground(Color.decode("#91a2cc"));
+        bar4.setStringPainted(true);
+        bar4.setForeground(Color.decode("#91ccc7"));
+        bar4.setUI(new BasicProgressBarUI()
+        {
+            @Override
+            protected Color getSelectionBackground()
+            {
+                return Color.BLACK;
+            }
+
+            @Override
+            protected Color getSelectionForeground()
+            {
+                return Color.BLACK;
+            }
+        });
         constraints.gridx = 0;
         constraints.gridy = 5;
         pane.add(bar4, constraints);
@@ -115,6 +197,7 @@ public class MainForm extends JFrame
                 }
                 finally
                 {
+                    bar0.setValue(bar0.getMaximum());
                     bar1.setValue(bar1.getMaximum());
                     bar2.setValue(bar2.getMaximum());
                     bar3.setValue(bar3.getMaximum());

@@ -25,30 +25,17 @@ public class CustomProgressState
             ProgressStateException
     {
 
-        super(size,
-              name,
-              desc
-             );
+        super(size, name, desc);
         Bar = bar;
         Bar.setMaximum(size);
         Bar.setString(name + " : " + desc);
-        Bar.setStringPainted(true);
-        Bar.setForeground(Color.cyan);
-        Bar.setUI(new BasicProgressBarUI()
-        {
-            @Override
-            protected Color getSelectionBackground() { return Color.WHITE; }
-
-            @Override
-            protected Color getSelectionForeground() { return Color.BLACK; }
-        });
         logger = LoggerFactory.getLogger(SearchLib.class);
     }
 
     @Override
     public void onDone()
     {
-        Bar.setForeground(Color.decode("#6BA863"));
+        Bar.setForeground(Color.decode("#91cc93"));
         Bar.setString(name + " : DONE");
         if (logger.isInfoEnabled())
             logger.info("Progress bar {} is done", this.name);
@@ -59,14 +46,14 @@ public class CustomProgressState
     {
         Bar.setMaximum(this.size);
         Bar.setValue(this.state);
-        Bar.setString(name + " : " + this.state + " \\ " + this.size);
+        Bar.setString(name + " : " + state*100/size + "%");
     }
 
     @Override
     public void onChange()
     {
         Bar.setValue(this.state);
-        Bar.setString(name + " : " + this.state + " \\ " + this.size);
+        Bar.setString(name + " : " + state*100/size + "%");
         if (logger.isInfoEnabled())
             logger.info("{} \\ {} \\ {}", this.state, this.size, this.desc);
     }
